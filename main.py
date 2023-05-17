@@ -1,3 +1,4 @@
+# Some elements and headers highlighted and bolden
 from colored import fg, bg, attr
 
 from log_functions import add_log, remove_log, calorie_log, view_log
@@ -24,7 +25,7 @@ except FileNotFoundError as e:
     print("In except block")
 
 
-
+# Creates a guide for user to select what action they would like to take to manipulate the log
 def create_menu():
     print(f"{fg('yellow_4a')}{attr('bold')}Enter 1 {attr('reset')}to add a new item to your log")
     print(f"{fg('yellow_4a')}{attr('bold')}Enter 2 {attr('reset')}to remove an item from your log")
@@ -35,7 +36,7 @@ def create_menu():
     return choice
 
 user_choice = ""
-
+# Continues program until user selects 5
 while user_choice != "5":
     user_choice = create_menu()
 
@@ -52,6 +53,6 @@ while user_choice != "5":
     else: 
         print("Invalid selection")
 
-    input("Press enter to continue....")
+    input(f"\nPress enter to continue....")
 
 print(f"\nThanks for using your log")
