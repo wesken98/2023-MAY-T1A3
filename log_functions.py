@@ -8,21 +8,30 @@ def add_log(file_name):
 
   # Can also use log_title.upper/lower  
     if (log_title == "workout" or (log_title == "Workout")):
-        workout = input("What kind of workout would you like to record: ")
-        calorie = int(input("How many estimated calories did you burn: "))
-        with open(file_name, "a") as log_file:
-            writer = csv.writer(log_file)
-            writer.writerow([workout, -calorie])
+        try:
+            workout = input("What kind of workout would you like to record: ")           
+            calorie = int(input("How many estimated calories did you burn: "))
+            with open(file_name, "a") as log_file:
+                writer = csv.writer(log_file)
+                writer.writerow([workout, -calorie])
+        except ValueError as e:
+            print(f"\n{attr('underlined')}Please input a numeric value{attr('reset')}")
+            add_log(file_name)
    # food gives positive calories while workouts are converted to negative values 
     elif (log_title == "food" or (log_title == "Food")):
-        food = input("What food would you like to record: ")
-        calorie = int(input("How many estimated calories in your meal: "))
-        with open(file_name, "a") as log_file:
-            writer = csv.writer(log_file)
-            writer.writerow([food, calorie])
+        try:
+            food = input("What food would you like to record: ")
+            calorie = int(input("How many estimated calories in your meal: "))
+            with open(file_name, "a") as log_file:
+                writer = csv.writer(log_file)
+                writer.writerow([food, calorie])
+        except ValueError as e:
+            print(f"\n{attr('underlined')}Please input a numeric value{attr('reset')}")
+            add_log(file_name)
+        
 
     else:
-        print("Invalid selection")
+        print(f"\n{attr('underlined')}Invalid selection - Please select 'workout' or 'food'{attr('reset')}")
 
 # If mistake made in log, user has the ability to remove elements to provide accuracy but must be precise with which element
 def remove_log(file_name):
@@ -80,4 +89,4 @@ def calorie_log(file_name):
         else:
             print(f"\nYou have a cumulation of {attr('bold')}{sum}{attr('reset')} calories. {attr('bold')}You are currently in a calorie surplus!{attr('reset')}")
     else: 
-        print("Invalid selection")        
+        print(f"\n{attr('underlined')}Invalid selection - Please select M or F{attr('reset')}")        

@@ -51,7 +51,7 @@ while user_choice != "5":
     elif (user_choice == "5"):
         continue
     else: 
-        print("Invalid selection")
+        print(f"\n{attr('underlined')}Invalid selection - Please select a numeric value (1-5){attr('reset')}")
 
     input(f"\nPress enter to continue....")
 
