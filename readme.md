@@ -20,7 +20,7 @@ Another feature allows the user to review the existing log of elements they have
 Upon selecting this function, the program shows the user a recommended guide of what their daily calorie log should look like for the day and asks the user to input the gender they most identify with to see if their calories are aligned with the recommended guide. I used a for loop to run through each element of the lists created only accounting for the first index. Because the default is string I implicitly declared them as integers. Within the for loop, I was able to recall the global variable I made, sum = 0, and add each integer until each list was ran through and the total calories of the log were accounted for. Finally I used nested if/else statements and recalled both the global variables sum and gender to ensure the user would be given an accurate telling of whether or not they were in a calorie surplus or calorie deficit.
 
 ## Implementation Plan
-![](Screenshot 2023-05-18 at 12.26.34 PM)
+![](Photo.png)
 
 ## Design help documentation
 In order to install the application, the program requires that the user run ./run.sh in the terminal. In doing so this creates a virtual environment of the program, installs the python package enabled through requirements.txt and runs the main page of the program, which is linked to the functions of the log. The program will guide user through selections prompted through the terminal and uses the network and packets to connect to github, which is where the repository is stored. A csv file creates lists of the log, which is recalled on throughout the program to define the calories and workout/food of the data inputted by the user.
