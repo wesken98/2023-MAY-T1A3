@@ -19,7 +19,7 @@ def add_log(file_name):
                 writer = csv.writer(log_file)
                 writer.writerow([workout, -calorie])
         except ValueError as e:
-            print(f"\n{underline}Please input a numeric value{reset}")
+            print(f"\n{underline}Please input a whole numeric value{reset}")
             add_log(file_name)
    # food gives positive calories while workouts are converted to negative values 
     elif (log_title == "food" or (log_title == "Food")):
@@ -30,7 +30,7 @@ def add_log(file_name):
                 writer = csv.writer(log_file)
                 writer.writerow([food, calorie])
         except ValueError as e:
-            print(f"\n{underline}Please input a numeric value{reset}")
+            print(f"\n{underline}Please input a whole numeric value{reset}")
             add_log(file_name)
         
 
