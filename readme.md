@@ -5,7 +5,8 @@ Pypi - pip (colored installed)
 NHS - information related to calorie intake recommendations
 
 ## Provide a link to your source control repository
-
+git@github.com:wesken98/2023-MAY-T1A3.git
+https://github.com/wesken98/2023-MAY-T1A3.git
 
 ## Identify any code style guide or styling conventions that the application will adhere to. Reference the chosen style guide appropriately.
 
