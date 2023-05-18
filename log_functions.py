@@ -1,9 +1,13 @@
 import csv
 from colored import fg, bg, attr
 
+bold = attr('bold')
+reset = attr('reset')
+underline = attr('underlined')
+
 # Asking user to add elements to the calorie log to track progress throughout the day
 def add_log(file_name):
-    print(f"\n{attr('bold')}Add to log{attr('reset')}:")
+    print(f"\n{bold}Add to log{reset}:")
     log_title = input("Please enter 'workout' or 'food' you would like to input: ")
 
   # Can also use log_title.upper/lower  
@@ -15,7 +19,7 @@ def add_log(file_name):
                 writer = csv.writer(log_file)
                 writer.writerow([workout, -calorie])
         except ValueError as e:
-            print(f"\n{attr('underlined')}Please input a numeric value{attr('reset')}")
+            print(f"\n{underline}Please input a numeric value{reset}")
             add_log(file_name)
    # food gives positive calories while workouts are converted to negative values 
     elif (log_title == "food" or (log_title == "Food")):
@@ -26,16 +30,16 @@ def add_log(file_name):
                 writer = csv.writer(log_file)
                 writer.writerow([food, calorie])
         except ValueError as e:
-            print(f"\n{attr('underlined')}Please input a numeric value{attr('reset')}")
+            print(f"\n{underline}Please input a numeric value{reset}")
             add_log(file_name)
         
 
     else:
-        print(f"\n{attr('underlined')}Invalid selection - Please select 'workout' or 'food'{attr('reset')}")
+        print(f"\n{underline}Invalid selection - Please select 'workout' or 'food'{reset}")
 
 # If mistake made in log, user has the ability to remove elements to provide accuracy but must be precise with which element
 def remove_log(file_name):
-    print(f"\n{attr('bold')}Remove from log{attr('reset')}:")
+    print(f"\n{bold}Remove from log{reset}:")
     view_log(file_name)
     log_title = input("Remove the workout or food you would like to remove: ")
     log_lists = []
@@ -51,7 +55,7 @@ def remove_log(file_name):
         writer.writerows(log_lists)
 # User is able to view elements added to the log and show calories gained/burned
 def view_log(file_name):
-    print(f"\n{attr('bold')}Review log{attr('reset')}:")
+    print(f"\n{bold}Review log{reset}:")
     with open(file_name, "r") as log_file:
         reader = csv.reader(log_file)
         reader.__next__()
@@ -65,7 +69,7 @@ def view_log(file_name):
 
 # Tracks calories of data recorded by users
 def calorie_log(file_name):
-    print(f"\n{attr('bold')}Calorie progress{attr('reset')}:")
+    print(f"\n{bold}Calorie progress{reset}:")
     # Gives a guide as to the limit user is ideally aiming for based off of NHS but could be more precise depending on other factors like weight and age
     print("Generally, the recommended daily calorie intake is 2,000 for women and 2,500 for men")
     gender = input("Please enter the initial of which gender you identify with (M/F): ")
@@ -80,13 +84,13 @@ def calorie_log(file_name):
             
     if (gender == "M" or (gender == "m")): 
         if (sum <= 2500):
-            print(f"\nYou have a cumulation of {attr('bold')}{sum} {attr('reset')}calories. {attr('bold')}You are currently in a calorie deficit!{attr('reset')}")
+            print(f"\nYou have a cumulation of {bold}{sum} {reset}calories. {bold}You are currently in a calorie deficit!{reset}")
         else:
-            print(f"\nYou have a cumulation of {attr('bold')}{sum}{attr('reset')} calories. {attr('bold')}You are currently in a calorie surplus!{attr('reset')}")
+            print(f"\nYou have a cumulation of {bold}{sum}{reset} calories. {bold}You are currently in a calorie surplus!{reset}")
     elif (gender == "F" or (gender == "f")): 
         if (sum <= 2000):
-            print(f"\nYou have a cumulation of {attr('bold')}{sum} {attr('reset')}calories. {attr('bold')}You are currently in a calorie deficit!{attr('reset')}")
+            print(f"\nYou have a cumulation of {bold}{sum} {reset}calories. {bold}You are currently in a calorie deficit!{reset}")
         else:
-            print(f"\nYou have a cumulation of {attr('bold')}{sum}{attr('reset')} calories. {attr('bold')}You are currently in a calorie surplus!{attr('reset')}")
+            print(f"\nYou have a cumulation of {bold}{sum}{reset} calories. {bold}You are currently in a calorie surplus!{reset}")
     else: 
-        print(f"\n{attr('underlined')}Invalid selection - Please select M or F{attr('reset')}")        
+        print(f"\n{underline}Invalid selection - Please select M or F{reset}")        

@@ -3,7 +3,12 @@ from colored import fg, bg, attr
 
 from log_functions import add_log, remove_log, calorie_log, view_log
 
-print(f"{attr('bold')}{attr('underlined')}Welcome to your calorie log of the day{attr('reset')}")
+color = fg('yellow_4a')
+bold = attr('bold')
+reset = attr('reset')
+underline = attr('underlined')
+
+print(f"{bold}{underline}Welcome to your calorie log of the day{reset}")
 print(f"An easy way of tracking your calorie intake and exertion throughout the day")
 
 # CSV Structure
@@ -16,7 +21,7 @@ file_name = "list.csv"
 try:
     log_file = open(file_name, "r")
     log_file.close()
-    print(f"{attr('hidden')}In try block{attr('reset')}")
+    print(f"{attr('hidden')}In try block {reset}")
 #If it does not we can create
 except FileNotFoundError as e:
     log_file = open(file_name, "w")
@@ -27,11 +32,11 @@ except FileNotFoundError as e:
 
 # Creates a guide for user to select what action they would like to take to manipulate the log
 def create_menu():
-    print(f"{fg('yellow_4a')}{attr('bold')}Enter 1 {attr('reset')}to add a new item to your log")
-    print(f"{fg('yellow_4a')}{attr('bold')}Enter 2 {attr('reset')}to remove an item from your log")
-    print(f"{fg('yellow_4a')}{attr('bold')}Enter 3 {attr('reset')}to view progress of calories")
-    print(f"{fg('yellow_4a')}{attr('bold')}Enter 4 {attr('reset')}to review log")
-    print(f"{fg('yellow_4a')}{attr('bold')}Enter 5 {attr('reset')}to exit{attr('reset')}")
+    print(f"{color}{bold}Enter 1 {reset}to add a new item to your log")
+    print(f"{color}{bold}Enter 2 {reset}to remove an item from your log")
+    print(f"{color}{bold}Enter 3 {reset}to view progress of calories")
+    print(f"{color}{bold}Enter 4 {reset}to review log")
+    print(f"{color}{bold}Enter 5 {reset}to exit{reset}")
     choice = input("Enter your selection: ")
     return choice
 
@@ -51,7 +56,7 @@ while user_choice != "5":
     elif (user_choice == "5"):
         continue
     else: 
-        print(f"\n{attr('underlined')}Invalid selection - Please select a numeric value (1-5){attr('reset')}")
+        print(f"\n{underline}Invalid selection - Please select a numeric value (1-5){reset}")
 
     input(f"\nPress enter to continue....")
 
